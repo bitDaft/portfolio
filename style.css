@@ -48,10 +48,14 @@ body {
 
 #list > li {
     margin: 0.3em 0;
+    position: relative;
+    overflow: hidden;
 }
 
 #list a {
+    z-index: 9;
     display: inline-block;
+    width: 100%;
     padding: 0.3em 0 0.3em 1.3em;
     height: 100%;
     text-decoration: none;
@@ -67,8 +71,12 @@ body {
 }
 
 .bar {
+    z-index: 1;
     height: 100%;
-    width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.3em;
     background-color: red;
 }
 

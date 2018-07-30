@@ -8,11 +8,20 @@ html {
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
-
+:root {
+    --c1: rgba(0, 229, 168, 0.7);
+    --c1b: rgb(0, 229, 168);
+    --c2: rgba(232, 65, 24, 0.7);
+    --c2b: rgb(232, 65, 24);
+    --c3: rgba(49, 185, 255, 0.7);
+    --c3b: rgb(49, 185, 255);
+    --c4: rgba(241, 196, 15, 0.7);
+    --c4b: rgb(241, 196, 15);
+}
 
 
 /*
@@ -33,6 +42,14 @@ body {
     background-color: #222;
 }
 
+#im {
+    display: block;
+    outline: none;
+    position: absolute;
+    bottom: 5em;
+    width: 100%;
+}
+
 #pic {
     display: block;
     width: 100%;
@@ -42,6 +59,7 @@ body {
     margin-left: -50%;
     margin-top: -50%;
 }
+
 
 #list {
     display: block;
@@ -75,36 +93,36 @@ body {
 }
 
 #list a.c1.active {
-    background-color: rgb(0, 229, 168);
+    background-color: var(--c1b);
 }
 
 #list a.c2.active {
-    background-color: rgb(230, 126, 34);
+    background-color: var(--c2b);
 }
 
 #list a.c3.active {
-    background-color: rgb(49, 185, 255);
+    background-color: var(--c3b);
 }
 
 #list a.c4.active {
-    background-color: darkviolet;
+    background-color: var(--c4b);
 }
 
 
 #list a.c1::before {
-    background-color: rgb(0, 229, 168);
+    background-color: var(--c1b);
 }
 
 #list a.c2::before {
-    background-color: rgb(230, 126, 34);
+    background-color: var(--c2b);
 }
 
 #list a.c3::before {
-    background-color: rgb(49, 185, 255);
+    background-color: var(--c3b);
 }
 
 #list a.c4::before {
-    background-color: darkviolet;
+    background-color: var(--c4b);
 }
 
 #list a::before {
@@ -118,19 +136,105 @@ body {
     bottom: 0;
     transform: scaleX(0);
     transform-origin: 0 50%;
-    transition: transform 0.3s linear;
+    transition: transform 0.13s linear;
 }
 
 #list a:not(.active):hover::before {
     transform: scaleX(1);
 }
 
-
 .cntnt {
     margin-left: 12rem;
     height: 100%;
     box-shadow: 0px 0px 7px 5px black inset;
 }
+
+@media screen and (max-height: 116px) {
+    .cntnt {
+        height: auto;
+        min-height: 100%;
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    html {
+        position: relative;
+    }
+    body {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .navi {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: auto;
+        height: auto;
+        background-color: #222;
+        height: auto;
+        overflow: hidden;
+    }
+    .navi nav {
+        font-size: 1.3em;
+        display: inline-block;
+        width: 85%;
+        height: 100%;
+    }
+
+    #list {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    #list > li {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 24%;
+        display: inline-block;
+        overflow: visible;
+    }
+
+    #list a {
+        padding: 0;
+        margin: 0;
+        z-index: 0;
+        padding-left: 0em;
+        text-align: center;
+        display: block;
+        width: 100%;
+        font-size: 1.8em;
+        color: white;
+    }
+    #im {
+        overflow: hidden;
+        display: inline-block;
+        outline: none;
+        position: absolute;
+        height: 100%;
+        width: 15%;
+        top: 0;
+        right: 0;
+    }
+
+    #pic {}
+    .cntnt {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 2.68em;
+    }
+}
+
+
 
 #top {
     margin: 0 auto;
@@ -157,18 +261,9 @@ body {
     font-weight: bold;
 }
 
-#im {
-    display: block;
-    outline: none;
-    position: absolute;
-    bottom: 5em;
-    width: 100%;
-    /*    height: 80%;*/
-}
 
 .subline {
     padding-top: 2.2em;
-    /*    padding-bottom: 2.2em;*/
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     font-size: 2.5em;
@@ -238,16 +333,55 @@ body {
 }
 
 .abt {
-    background-color: rgba(0, 229, 168, 0.7);
+    background-color: var(--c1);
     height: 100%;
+    /*        padding-top: 2.6em;*/
 }
 
 .prj {
-    background-color: rgba(230, 126, 34, 0.7);
+    background: url("./images/beard-chair-computer-840996.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
+.prjct {
+    background-color: var(--c2);
+    height: 100%;
+    padding-left: 2.6em;
+    padding-right: 2.6em;
+    /*    padding-top: 1em;*/
+}
+
+
+.pjj {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5em;
+    border: 2px solid black;
+}
+
+.pjj > * {
+    flex: 1;
+}
+
+.pjj > p {
+    font-size: 1.1em;
+}
+
+.pjj > img {
+    padding: 0 0.9em;
+    flex-grow: 0;
+    flex-shrink: 1;
+    width: 40%;
+    height: 50%;
+}
+
+
 .svc {
-   background: url("./images/adult-chill-computer-450271.jpg") no-repeat center center fixed;
+    background: url("./images/adult-chill-computer-450271.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -256,10 +390,8 @@ body {
 
 .svc h1 {
     padding-top: 1.2em;
-    font-size: 1.9em;
-    text-align: left;
+    font-size: 2.5em;
     text-decoration: underline;
-
 }
 
 .svc li {
@@ -281,8 +413,8 @@ body {
 }
 
 .divs {
-    border: 1px solid #0a75ac;
-    box-shadow: 0px 0px 200px 1px black;
+    border: 2px solid #12374a;
+    box-shadow: 0px 0px 1px 0px black;
     max-width: 5px;
     border-radius: 3em;
     min-height: 90%;
@@ -291,15 +423,103 @@ body {
 }
 
 .wbd {
-    padding-left: 3em;
+    padding-left: 0.8em;
     flex: 3;
     max-height: 100%;
     min-height: 100%;
+    text-align: center;
 }
 
 .srvbg {
     height: 100%;
-        display: flex;
+    display: flex;
     align-items: center;
-    background-color: rgba(49, 185, 255, 0.7);
+    background-color: var(--c3);
+}
+
+.ctct {
+    background: url("./images/art-artist-background-316466.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.cont {
+    background: var(--c4);
+
+    font-size: 3em;
+    height: 100%;
+}
+
+form {
+    padding-left: 2em;
+    padding-top: 2em;
+    display: block;
+}
+
+form input {
+    background: transparent;
+    border: none;
+
+}
+
+form input[type=text] {
+    height: 2em;
+    width: 8.6em;
+    font-size: 0.67em;
+    position: relative;
+    top: -0.2em;
+    border-bottom: 4px dotted yellow;
+}
+
+form input[type=checkbox] {
+    position: relative;
+    top: -0.29em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+form input[type=date] {
+    height: 2em;
+    width: 9.8em;
+    font-size: 0.87em;
+    position: relative;
+    top: -0.1em;
+    border-bottom: 4px dotted yellow;
+}
+
+form input[type=email] {
+    height: 2em;
+    width: 11.1em;
+    font-size: 0.67em;
+    position: relative;
+    top: -0.1em;
+    border-bottom: 4px dotted yellow;
+}
+
+form input[type=submit] {
+    height: 1.9em;
+    width: 8.4em;
+    margin: 0.7em 0.2em;
+    font-size: 0.67em;
+    background-color: #ffff52;
+    /*    box-shadow: 0px 0px 20px 0px black,0px 0px 20px 10px #ffff6a inset;*/
+    border: 4px solid rgb(136, 160, 0);
+}
+
+form input[type=submit]:hover {
+
+    background-color: #ffff72;
+    box-shadow: 0px 0px 10px 0px black;
+}
+
+form input[type=submit]:active {
+
+    background-color: #ffff72;
+    box-shadow: 0px 0px 10px 0px black inset;
+}
+
+.ff {
+    padding-top: 1em;
 }
